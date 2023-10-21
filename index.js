@@ -57,6 +57,13 @@ async function run() {
       res.send(result);
     });
 
+    // get to cartCollection
+    app.get("/addToCart", async (req, res) => {
+      const cursor = cartCollection.find();
+      const result = await cursor.toArray();
+      res.send(result);
+    });
+
     app.post("/products", async (req, res) => {
       const newProduct = req.body;
       console.log(newProduct);
